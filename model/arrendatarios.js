@@ -21,5 +21,17 @@ function getAll()
     return arrendatarios;
 }
 
+function getById(id)
+{
+    let a = arrendatarios.find(a => a.id == id);
+
+    if (a == null) {
+        a = { error: `Arrendatario con id ${id} no encontrado` };
+    }
+
+    return a;
+}
+
 module.exports.default = arrendatarios;
 module.exports.getAll = getAll;
+module.exports.getById = getById;
