@@ -16,4 +16,10 @@ const arrendatarios = [
     }
 ];
 
-exports.default = arrendatarios;
+function getAll()
+{
+    return arrendatarios;
+}
+
+module.exports.default = arrendatarios;
+module.exports.getAll = getAll;
