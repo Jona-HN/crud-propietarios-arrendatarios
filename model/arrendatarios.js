@@ -66,8 +66,31 @@ function update(id, newRfc, newNombre)
     }
 }
 
+function deleteById(id)
+{
+    if (!arrendatarios.length)
+    {
+        return { error: 'No hay arrendatarios registrados' };
+    }
+    
+    let a = getById(id);
+
+    if (a.id != null)
+    {
+        let indexOfA = arrendatarios.indexOf(a);
+        arrendatarios.splice(indexOfA, 1);
+        
+        return arrendatarios;
+    }
+    else
+    {
+        return a;
+    }
+}
+
 module.exports.default = arrendatarios;
 module.exports.getAll = getAll;
 module.exports.getById = getById;
 module.exports.add = add;
 module.exports.update = update;
+module.exports.deleteById = deleteById;
