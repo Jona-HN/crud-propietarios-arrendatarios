@@ -47,7 +47,27 @@ function add(rfc, nombre)
     return arrendatarios;
 }
 
+function update(id, newRfc, newNombre)
+{
+    let a = getById(id);
+
+    if (a.id != null)
+    {
+        let indexOfA = arrendatarios.indexOf(a);
+        a.rfc = newRfc;
+        a.nombre = newNombre;
+        arrendatarios[indexOfA] = a;
+
+        return arrendatarios;
+    }
+    else
+    {
+        return a;
+    }
+}
+
 module.exports.default = arrendatarios;
 module.exports.getAll = getAll;
 module.exports.getById = getById;
 module.exports.add = add;
+module.exports.update = update;
