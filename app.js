@@ -16,3 +16,4 @@ app.listen(2800, () => {
 
 app.get('/arrendatarios', arrendatariosController.getAll);
 app.get('/arrendatarios/id/:id', arrendatariosController.getById);
+app.post('/arrendatarios/add', arrendatariosController.add);

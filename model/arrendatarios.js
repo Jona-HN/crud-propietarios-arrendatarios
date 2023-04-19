@@ -32,6 +32,22 @@ function getById(id)
     return a;
 }
 
+function add(rfc, nombre)
+{
+    let last = arrendatarios.slice(-1)[0];
+
+    let newItem = {
+        id: last != null ? last.id + 1 : 1,
+        rfc: rfc,
+        nombre: nombre
+    };
+
+    arrendatarios.push(newItem);
+
+    return arrendatarios;
+}
+
 module.exports.default = arrendatarios;
 module.exports.getAll = getAll;
 module.exports.getById = getById;
+module.exports.add = add;

@@ -12,5 +12,12 @@ const getById = async function(req, res)
     await res.json(a);
 }
 
+const add = async function(req, res)
+{
+    let a = arrendatariosModel.add(req.query.rfc, req.query.nombre);
+    await res.json(a);
+}
+
 module.exports.getAll = getAll;
 module.exports.getById = getById;
+module.exports.add = add;
