@@ -88,9 +88,24 @@ function deleteById(id)
     }
 }
 
+function deleteAll()
+{
+    if (arrendatarios.length)
+    {
+        arrendatarios.length = 0;
+        
+        return { resultado: 'Arrendatarios eliminados correctamente' };
+    }
+    else
+    {
+        return { error: 'No hay arrendatarios registrados' };
+    }
+}
+
 module.exports.default = arrendatarios;
 module.exports.getAll = getAll;
 module.exports.getById = getById;
 module.exports.add = add;
 module.exports.update = update;
 module.exports.deleteById = deleteById;
+module.exports.deleteAll = deleteAll;

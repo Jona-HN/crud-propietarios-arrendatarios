@@ -35,8 +35,16 @@ const deleteById = async function(req, res)
     await res.json(a);
 }
 
+const deleteAll = async function(req, res)
+{
+    let result = arrendatariosModel.deleteAll();
+
+    await res.json(result);
+}
+
 module.exports.getAll = getAll;
 module.exports.getById = getById;
 module.exports.add = add;
 module.exports.update = update;
 module.exports.deleteById = deleteById;
+module.exports.deleteAll = deleteAll;

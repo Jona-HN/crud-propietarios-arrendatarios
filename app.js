@@ -20,3 +20,4 @@ app.get('/arrendatarios/id/:id', arrendatariosController.getById);
 app.post('/arrendatarios/add', arrendatariosController.add);
 app.patch('/arrendatarios/update', arrendatariosController.update);
 app.delete('/arrendatarios/delete/:id', arrendatariosController.deleteById);
+app.delete('/arrendatarios/deleteAll', arrendatariosController.deleteAll);
