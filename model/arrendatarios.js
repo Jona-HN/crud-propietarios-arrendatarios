@@ -54,8 +54,8 @@ function update(id, newRfc, newNombre)
     if (a.id != null)
     {
         let indexOfA = arrendatarios.indexOf(a);
-        a.rfc = newRfc;
-        a.nombre = newNombre;
+        a.rfc = newRfc || a.rfc;
+        a.nombre = newNombre || a.nombre;
         arrendatarios[indexOfA] = a;
 
         return arrendatarios;
