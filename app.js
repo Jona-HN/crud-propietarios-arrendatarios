@@ -5,6 +5,7 @@ const puerto = 2800;
 
 // Controladores
 const arrendatariosController = require('./controller/arrendatariosController.js');
+const propiedadesController = require('./controller/propiedadesController.js');
 
 app.get('/', (req, res) => {
     res.send('Hello world!');
@@ -21,3 +22,11 @@ app.post('/arrendatarios/add', arrendatariosController.add);
 app.patch('/arrendatarios/update', arrendatariosController.update);
 app.delete('/arrendatarios/delete/:id', arrendatariosController.deleteById);
 app.delete('/arrendatarios/deleteAll', arrendatariosController.deleteAll);
+
+// Métodos para propiedades
+app.get('/propiedades', propiedadesController.getAll);
+app.get('/propiedades/id/:id', propiedadesController.getById);
+app.post('/propiedades/add', propiedadesController.add);
+app.patch('/propiedades/update', propiedadesController.update);
+app.delete('/propiedades/delete/:id', propiedadesController.deleteById);
+app.delete('/propiedades/deleteAll', propiedadesController.deleteAll);
