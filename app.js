@@ -49,3 +49,6 @@ app.get('/posesiones', posesionesController.getAll);
 app.get('/posesiones/id/:id', posesionesController.getById);
 app.get('/posesiones/propiedad/:id', posesionesController.getPropietariosByIdPropiedad);
 app.get('/posesiones/propietario/:id', posesionesController.getPropiedadesByIdPropietario);
+app.post('/posesiones/add', posesionesController.add);
+app.patch('/posesiones/update', posesionesController.update);
+app.delete('/posesiones/delete/:id', posesionesController.deleteById);

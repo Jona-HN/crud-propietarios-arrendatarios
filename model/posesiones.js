@@ -103,8 +103,67 @@ function getPropietariosByIdPropiedad(id_propiedad)
     }
 }
 
+function add(id_propietario, id_propiedad)
+{
+    let last = posesiones.slice(-1)[0];
+
+    let newItem = {
+        id: last ? last.id + 1 : 1,
+        id_propietario: parseInt(id_propietario),
+        id_propiedad: parseInt(id_propiedad)
+    };
+
+    posesiones.push(newItem);
+
+    return posesiones;
+}
+
+function update(id, newIdPropietario, newIdPropiedad)
+{
+    let p = posesiones.find(p => p.id == id);
+
+    if (p)
+    {
+        let indexOfP = posesiones.indexOf(p);
+        p.id_propietario = parseInt(newIdPropietario) || p.id_propietario;
+        p.id_propiedad = parseInt(newIdPropiedad) || p.id_propiedad;
+        posesiones[indexOfP] = p;
+
+        return posesiones;
+    }
+    else
+    {
+        return { error: `Posesión con id ${id} no encontrada` };
+    }
+}
+
+function deleteById(id)
+{
+    if (!posesiones.length)
+    {
+        return { error: 'No hay posesiones registradas' };
+    }
+    
+    let p = posesiones.find(p => p.id == id);
+
+    if (p)
+    {
+        let indexOfP = posesiones.indexOf(p);
+        posesiones.splice(indexOfP, 1);
+        
+        return posesiones;
+    }
+    else
+    {
+        return p;
+    }
+}
+
 module.exports.default = posesiones;
 module.exports.getAll = getAll;
 module.exports.getById = getById;
 module.exports.getPropiedadesByIdPropietario = getPropiedadesByIdPropietario;
 module.exports.getPropietariosByIdPropiedad = getPropietariosByIdPropiedad;
+module.exports.add = add;
+module.exports.update = update;
+module.exports.deleteById = deleteById;
