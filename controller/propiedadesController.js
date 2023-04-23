@@ -52,6 +52,17 @@ const updateArrendatarioPropiedad = async function (req, res)
     await res.json(p);
 }
 
+const updateLiberarPropiedad = async function (req, res)
+{
+    let p = propiedadesModel.update(
+        {
+            id: req.params.id,
+            newIdArrendatario: -1
+        }
+    );
+    await res.json(p);
+}
+
 const deleteById = async function(req, res)
 {
     let p = propiedadesModel.deleteById(req.params.id);
@@ -72,5 +83,6 @@ module.exports.getPropiedadesByIdArrendatario = getPropiedadesByIdArrendatario;
 module.exports.add = add;
 module.exports.update = update;
 module.exports.updateArrendatarioPropiedad = updateArrendatarioPropiedad;
+module.exports.updateLiberarPropiedad = updateLiberarPropiedad;
 module.exports.deleteById = deleteById;
 module.exports.deleteAll = deleteAll;
