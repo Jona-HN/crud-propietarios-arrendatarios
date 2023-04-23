@@ -7,6 +7,7 @@ const puerto = 2800;
 const arrendatariosController = require('./controller/arrendatariosController.js');
 const propiedadesController = require('./controller/propiedadesController.js');
 const propietariosController = require('./controller/propietariosController.js');
+const posesionesController = require('./controller/posesionesController.js');
 
 app.get('/', (req, res) => {
     res.send('Hello world!');
@@ -39,3 +40,9 @@ app.post('/propietarios/add', propietariosController.add);
 app.patch('/propietarios/update', propietariosController.update);
 app.delete('/propietarios/delete/:id', propietariosController.deleteById);
 app.delete('/propietarios/deleteAll', propietariosController.deleteAll);
+
+// Métodos para posesiones (relación propietario-propiedad)
+app.get('/posesiones', posesionesController.getAll);
+app.get('/posesiones/id/:id', posesionesController.getById);
+app.get('/posesiones/propiedad/:id', posesionesController.getPropietariosByIdPropiedad);
+app.get('/posesiones/propietario/:id', posesionesController.getPropiedadesByIdPropietario);
