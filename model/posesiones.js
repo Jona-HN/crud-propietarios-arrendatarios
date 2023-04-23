@@ -8,12 +8,12 @@ const posesiones = [
         id_propiedad: 1
     },
     {
-        id: 1,
+        id: 2,
         id_propietario: 1,
         id_propiedad: 2
     },
     {
-        id: 2,
+        id: 3,
         id_propietario: 2,
         id_propiedad: 1
     }
