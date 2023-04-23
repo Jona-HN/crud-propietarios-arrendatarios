@@ -31,10 +31,23 @@ const add = async function(req, res)
 const update = async function(req, res)
 {
     let p = propiedadesModel.update(
-        req.query.id,
-        req.query.clave_catastral,
-        req.query.descripcion,
-        req.query.id_arrendatario
+        {
+            id: req.query.id,
+            newClaveCatastral : req.query.clave_catastral,
+            newDescripcion: req.query.descripcion,
+            newIdArrendatario: req.query.id_arrendatario
+        }
+    );
+    await res.json(p);
+}
+
+const updateArrendatarioPropiedad = async function (req, res)
+{
+    let p = propiedadesModel.update(
+        {
+            id: req.params.id,
+            newIdArrendatario: req.params.id_arrendatario
+        }
     );
     await res.json(p);
 }
@@ -58,5 +71,6 @@ module.exports.getById = getById;
 module.exports.getPropiedadesByIdArrendatario = getPropiedadesByIdArrendatario;
 module.exports.add = add;
 module.exports.update = update;
+module.exports.updateArrendatarioPropiedad = updateArrendatarioPropiedad;
 module.exports.deleteById = deleteById;
 module.exports.deleteAll = deleteAll;

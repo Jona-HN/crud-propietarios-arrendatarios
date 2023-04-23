@@ -31,6 +31,7 @@ app.get('/propiedades/id/:id', propiedadesController.getById);
 app.get('/propiedades/arrendatario/:id', propiedadesController.getPropiedadesByIdArrendatario);
 app.post('/propiedades/add', propiedadesController.add);
 app.patch('/propiedades/update', propiedadesController.update);
+app.patch('/propiedades/:id/arrendar/:id_arrendatario', propiedadesController.updateArrendatarioPropiedad);
 app.delete('/propiedades/delete/:id', propiedadesController.deleteById);
 app.delete('/propiedades/deleteAll', propiedadesController.deleteAll);
 

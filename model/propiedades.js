@@ -73,16 +73,16 @@ function add(clave_catastral, descripcion, id_arrendatario)
     return propiedades;
 }
 
-function update(id, newClaveCatastral, newDescripcion, newIDArrendatario)
+function update(args)
 {
-    let p = getById(id);
+    let p = getById(args.id);
 
     if (p.id != null)
     {
         let indexOfP = propiedades.indexOf(p);
-        p.clave_catastral = newClaveCatastral || p.clave_catastral;
-        p.descripcion = newDescripcion || p.descripcion;
-        p.id_arrendatario = parseInt(newIDArrendatario) || p.id_arrendatario;
+        p.clave_catastral = args.newClaveCatastral || p.clave_catastral;
+        p.descripcion = args.newDescripcion || p.descripcion;
+        p.id_arrendatario = parseInt(args.newIdArrendatario) || p.id_arrendatario;
         propiedades[indexOfP] = p;
 
         return propiedades;
