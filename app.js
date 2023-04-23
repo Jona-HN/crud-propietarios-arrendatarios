@@ -28,6 +28,7 @@ app.delete('/arrendatarios/deleteAll', arrendatariosController.deleteAll);
 // Métodos para propiedades
 app.get('/propiedades', propiedadesController.getAll);
 app.get('/propiedades/id/:id', propiedadesController.getById);
+app.get('/propiedades/arrendatario/:id', propiedadesController.getPropiedadesByIdArrendatario);
 app.post('/propiedades/add', propiedadesController.add);
 app.patch('/propiedades/update', propiedadesController.update);
 app.delete('/propiedades/delete/:id', propiedadesController.deleteById);

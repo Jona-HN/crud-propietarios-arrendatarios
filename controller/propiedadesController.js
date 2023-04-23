@@ -12,6 +12,12 @@ const getById = async function(req, res)
     await res.json(p);
 }
 
+const getPropiedadesByIdArrendatario = async function(req, res)
+{
+    let p = propiedadesModel.getPropiedadesByIdArrendatario(req.params.id);
+    await res.json(p);
+}
+
 const add = async function(req, res)
 {
     let p = propiedadesModel.add(
@@ -49,6 +55,7 @@ const deleteAll = async function(req, res)
 
 module.exports.getAll = getAll;
 module.exports.getById = getById;
+module.exports.getPropiedadesByIdArrendatario = getPropiedadesByIdArrendatario;
 module.exports.add = add;
 module.exports.update = update;
 module.exports.deleteById = deleteById;

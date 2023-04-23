@@ -35,6 +35,28 @@ function getById(id)
     return p;
 }
 
+function getPropiedadesByIdArrendatario(id_arrendatario)
+{
+    let propiedadesArrendadas = [];
+
+    for (let p of propiedades)
+    {
+        if (p.id_arrendatario == id_arrendatario)
+        {
+            propiedadesArrendadas.push(p);
+        }
+    }
+
+    if (propiedadesArrendadas.length)
+    {
+        return propiedadesArrendadas;
+    }
+    else
+    {
+        return { error: `El arrendatario con id ${id_arrendatario} no existe o no arrienda propiedades` };
+    }
+}
+
 function add(clave_catastral, descripcion, id_arrendatario)
 {
     let last = propiedades.slice(-1)[0];
@@ -110,6 +132,7 @@ function deleteAll()
 module.exports.default = propiedades;
 module.exports.getAll = getAll;
 module.exports.getById = getById;
+module.exports.getPropiedadesByIdArrendatario = getPropiedadesByIdArrendatario;
 module.exports.add = add;
 module.exports.update = update;
 module.exports.deleteById = deleteById;
