@@ -1,7 +1,18 @@
 // Configuración express
 const express = require('express');
 const app = express();
-const puerto = 2800;
+process.env.port = 2800;
+
+// Configuración HTTPs
+const fs = require('fs');
+const https = require('https');
+const credenciales =
+{
+    key: fs.readFileSync('private.key'),
+    cert: fs.readFileSync('certificate.crt'),
+    passphrase: '1234'
+};
+const httpsServer = https.createServer(credenciales, app);
 
 // Controladores
 const arrendatariosController = require('./controller/arrendatariosController.js');
@@ -13,9 +24,11 @@ app.get('/', (req, res) => {
     res.send('Hello world!');
 })
 
-app.listen(2800, () => {
-    console.log(`Escuchando el puerto ${puerto}`);
-})
+httpsServer.listen(process.env.port, () => {
+    console.log(`Escuchando el puerto ${process.env.port}`);
+}).on('error', err => {
+    console.log('Error al iniciar el servidor: ', err);
+});
 
 // Métodos para arrendatarios
 app.get('/arrendatarios', arrendatariosController.getAll);
