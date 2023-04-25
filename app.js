@@ -18,8 +18,10 @@ const httpsServer = https.createServer(credenciales, app);
 // Router arrendatarios
 const arrendatariosRouter = require('./routes/arrendatarios');
 app.use('/arrendatarios', arrendatariosRouter);
+// Router propiedades
+const propiedadesRouter = require('./routes/propiedades');
+app.use('/propiedades', propiedadesRouter);
 
-const propiedadesController = require('./controller/propiedadesController.js');
 const propietariosController = require('./controller/propietariosController.js');
 const posesionesController = require('./controller/posesionesController.js');
 
@@ -32,17 +34,6 @@ httpsServer.listen(process.env.port, () => {
 }).on('error', err => {
     console.log('Error al iniciar el servidor: ', err);
 });
-
-// Métodos para propiedades
-app.get('/propiedades', propiedadesController.getAll);
-app.get('/propiedades/id/:id', propiedadesController.getById);
-app.get('/propiedades/arrendatario/:id', propiedadesController.getPropiedadesByIdArrendatario);
-app.post('/propiedades/add', propiedadesController.add);
-app.patch('/propiedades/update', propiedadesController.update);
-app.patch('/propiedades/:id/arrendar/:id_arrendatario', propiedadesController.updateArrendatarioPropiedad);
-app.patch('/propiedades/:id/liberar', propiedadesController.updateLiberarPropiedad);
-app.delete('/propiedades/delete/:id', propiedadesController.deleteById);
-app.delete('/propiedades/deleteAll', propiedadesController.deleteAll);
 
 // Métodos para propietarios
 app.get('/propietarios', propietariosController.getAll);
