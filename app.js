@@ -21,8 +21,10 @@ app.use('/arrendatarios', arrendatariosRouter);
 // Router propiedades
 const propiedadesRouter = require('./routes/propiedades');
 app.use('/propiedades', propiedadesRouter);
+// Router propietarios
+const propietariosRouter = require('./routes/propietarios');
+app.use('/propietarios', propietariosRouter);
 
-const propietariosController = require('./controller/propietariosController.js');
 const posesionesController = require('./controller/posesionesController.js');
 
 app.get('/', (req, res) => {
@@ -34,14 +36,6 @@ httpsServer.listen(process.env.port, () => {
 }).on('error', err => {
     console.log('Error al iniciar el servidor: ', err);
 });
-
-// Métodos para propietarios
-app.get('/propietarios', propietariosController.getAll);
-app.get('/propietarios/id/:id', propietariosController.getById);
-app.post('/propietarios/add', propietariosController.add);
-app.patch('/propietarios/update', propietariosController.update);
-app.delete('/propietarios/delete/:id', propietariosController.deleteById);
-app.delete('/propietarios/deleteAll', propietariosController.deleteAll);
 
 // Métodos para posesiones (relación propietario-propiedad)
 app.get('/posesiones', posesionesController.getAll);
