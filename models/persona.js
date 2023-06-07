@@ -12,11 +12,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.Persona.belongsToMany(models.Propiedad, {
         through: models.Propietario,
-        as: "propiedades"
+        as: "propietarios",
+        foreignKey: "personaId"
       })
       models.Persona.belongsToMany(models.Propiedad, {
         through: models.Arrendatario,
-        as: "arrendatarios"
+        as: "arrendatarios",
+        foreignKey: "personaId"
       })
     }
   }
