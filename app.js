@@ -15,18 +15,18 @@ const credenciales =
 const httpsServer = https.createServer(credenciales, app);
 
 // Configuración Routers
-// Router arrendatarios
-const arrendatariosRouter = require('./routes/arrendatarios');
-app.use('/arrendatarios', arrendatariosRouter);
+// Router personas
+const personasRouter = require('./routes/personas');
+app.use('/personas', personasRouter);
 // Router propiedades
 const propiedadesRouter = require('./routes/propiedades');
 app.use('/propiedades', propiedadesRouter);
 // Router propietarios
 const propietariosRouter = require('./routes/propietarios');
 app.use('/propietarios', propietariosRouter);
-// Router posesiones
-const posesionesRouter = require('./routes/posesiones');
-app.use('/posesiones', posesionesRouter);
+// Router arrendatarios
+const arrendatariosRouter = require('./routes/arrendatarios');
+app.use('/arrendatarios', arrendatariosRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello world!');
