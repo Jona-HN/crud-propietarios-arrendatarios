@@ -13,6 +13,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Propietario.init({
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+      allowNull: false
+    },
     personaId: DataTypes.INTEGER,
     propiedadId: DataTypes.INTEGER
   }, {
