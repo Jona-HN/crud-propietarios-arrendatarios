@@ -7,6 +7,5 @@ router.get('/id/:id', arrendatariosController.getById);
 router.post('/add', arrendatariosController.add);
 router.patch('/update', arrendatariosController.update);
 router.delete('/delete/:id', arrendatariosController.deleteById);
-router.delete('/deleteAll', arrendatariosController.deleteAll);
 
 module.exports = router;
