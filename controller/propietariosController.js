@@ -14,16 +14,16 @@ const getById = async function(req, res)
 
 const add = async function(req, res)
 {
-    let p = await propietariosService.add(req.query.propiedadId, req.query.personaId);
+    let p = await propietariosService.add(req.body.propiedadId, req.body.personaId);
     await res.json(p);
 }
 
 const update = async function(req, res)
 {
     let p = await propietariosService.update(
-        req.query.id,
-        req.query.propiedadId,
-        req.query.personaId
+        req.body.id,
+        req.body.propiedadId,
+        req.body.personaId
     );
     await res.json(p);
 }

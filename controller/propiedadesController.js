@@ -15,9 +15,9 @@ const getById = async function(req, res)
 const add = async function(req, res)
 {
     let p = await propiedadesService.add(
-        req.query.clave_catastral,
-        req.query.descripcion,
-        req.query.direccion
+        req.body.cve_catastral,
+        req.body.descripcion,
+        req.body.direccion
     );
     await res.json(p);
 }
@@ -25,10 +25,10 @@ const add = async function(req, res)
 const update = async function(req, res)
 {
     let p = await propiedadesService.update(
-        req.query.id,
-        req.query.clave_catastral,
-        req.query.descripcion,
-        req.query.direccion
+        req.body.id,
+        req.body.cve_catastral,
+        req.body.descripcion,
+        req.body.direccion
     );
     await res.json(p);
 }

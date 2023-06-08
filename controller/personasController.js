@@ -15,8 +15,8 @@ const getById = async function(req, res)
 const add = async function(req, res)
 {
     let p = await personasService.add(
-        req.query.rfc,
-        req.query.nombre
+        req.body.rfc,
+        req.body.nombre
     );
     await res.json(p);
 }
@@ -24,9 +24,9 @@ const add = async function(req, res)
 const update = async function(req, res)
 {
     let p = await personasService.update(
-        req.query.id,
-        req.query.rfc,
-        req.query.nombre
+        req.body.id,
+        req.body.rfc,
+        req.body.nombre
     );
     await res.json(p);
 }
